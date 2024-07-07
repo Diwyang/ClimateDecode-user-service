@@ -9,8 +9,8 @@ spring:
         healthCheckPath: /actuator/health
         healthCheckInterval: 20s
         enabled: true
-        prefer-ip-address: true
-        ip-address: localhost
+        #prefer-ip-address: true
+        #ip-address: localhost
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     password: ${DB_PASSWORD}
