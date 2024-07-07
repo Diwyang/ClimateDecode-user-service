@@ -37,4 +37,11 @@ public class UserAddress {
 	
 	private String pincode;
 
+	@Override
+	public String toString() {
+		return "UserAddress [addressType=" + addressType + ", address1=" + address1 + ", address2=" + address2
+				+ ", city=" + city + ", state=" + state + ", country=" + country + ", pincode=" + pincode + "]";
+	}
+
+	
 }

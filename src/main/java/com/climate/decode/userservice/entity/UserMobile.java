@@ -1,11 +1,10 @@
 package com.climate.decode.userservice.entity;
 
-import com.climate.decode.userservice.enums.MobileType;
-import com.climate.decode.userservice.enums.RoleType;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
@@ -18,12 +17,17 @@ import lombok.NoArgsConstructor;
 @Table(name = "user_mobile")
 public class UserMobile {
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@Column(name = "id", updatable = false, nullable = false)
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+	
+	@ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
 	
 	@Column(name = "mobile_type")
-	private MobileType mobileType;
+	private String mobileType;
 	
 	@Column(name = "mobile_no")
 	private String mobileNo;
@@ -39,4 +43,11 @@ public class UserMobile {
     public int hashCode() {
         return getClass().hashCode();
     }
+
+	@Override
+	public String toString() {
+		return "UserMobile [id=" + id + ", mobileType=" + mobileType + ", mobileNo=" + mobileNo + "]";
+	}
+    
+    
 }

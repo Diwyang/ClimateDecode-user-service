@@ -1,10 +1,10 @@
 package com.climate.decode.userservice.entity;
 
-import com.climate.decode.userservice.enums.RoleType;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
@@ -17,12 +17,17 @@ import lombok.NoArgsConstructor;
 @Table(name = "user_role")
 public class UserRole {
 
-	@OneToOne(fetch = FetchType.LAZY)
+	@Column(name = "id", updatable = false, nullable = false)
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+	
+	@OneToOne
     @JoinColumn(name = "user_id")
     private User user;
 	
-	@Column(name = "role_id")
-	private RoleType roleId;
+	@Column(name = "role_type")
+	private String roleType;
 
     @Override
     public boolean equals(Object o) {
@@ -35,4 +40,11 @@ public class UserRole {
     public int hashCode() {
         return getClass().hashCode();
     }
+
+	@Override
+	public String toString() {
+		return "UserRole [id=" + id + ", roleType=" + roleType + "]";
+	}
+    
+    
 }

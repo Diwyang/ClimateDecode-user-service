@@ -18,7 +18,7 @@ import lombok.Data;
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 public class UserRequest {
 
-	private String userId;
+	private Long userId;
 	
 	@Schema(required = true)
 	private String name;
@@ -34,7 +34,7 @@ public class UserRequest {
 	private ZonedDateTime updatedDateTime;
 	
 	@Schema(required = true)
-    private List<@Valid UserRole> role;
+    private UserRole role;
 	
 	@Schema(required = true)
     private List<@Valid UserAddress> addresses;

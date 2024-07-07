@@ -1,0 +1,33 @@
+spring:
+  application:
+    name: user-service
+  cloud:
+    consul:
+      host: ${CONSUL_HOST}
+      port: ${CONSUL_PORT}
+      discovery:
+        healthCheckPath: /actuator/health
+        healthCheckInterval: 20s
+        enabled: true
+        prefer-ip-address: true
+        ip-address: localhost
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: ${DB_PASSWORD}
+    username: ${DB_USERNAME}
+    url: ${CD_USR_DB_URL}
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+
+logging:
+  level:
+    org.dozer: "debug"
+    org.hibernate: "error"
+    
+server:
+  port: ${PORT:9092}

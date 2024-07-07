@@ -1,11 +1,10 @@
 package com.climate.decode.userservice.entity;
 
-import com.climate.decode.userservice.enums.AddressType;
-import com.climate.decode.userservice.enums.MobileType;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
@@ -17,14 +16,19 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "user_address")
 public class UserAddress {
-
-	@ManyToOne(fetch = FetchType.LAZY)
+	
+	@Column(name = "id", updatable = false, nullable = false)
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+	
+	@ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
 	
 
 	@Column(name = "address_type")
-	private AddressType addressType;
+	private String addressType;
 	
 	@Column(name = "address_1")
 	private String address1;
@@ -55,4 +59,13 @@ public class UserAddress {
     public int hashCode() {
         return getClass().hashCode();
     }
+
+	@Override
+	public String toString() {
+		return "UserAddress [id=" + id + ", addressType=" + addressType + ", address1=" + address1 + ", address2="
+				+ address2 + ", city=" + city + ", state=" + state + ", country=" + country + ", pincode=" + pincode
+				+ "]";
+	}
+    
+    
 }

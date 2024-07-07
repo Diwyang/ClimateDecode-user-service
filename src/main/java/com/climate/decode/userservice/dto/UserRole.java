@@ -21,6 +21,6 @@ public class UserRole {
 
 	@Enumerated(EnumType.STRING)
 	@Schema(required = true)
-	private RoleType name;
+	private RoleType roleType;
 	
 }

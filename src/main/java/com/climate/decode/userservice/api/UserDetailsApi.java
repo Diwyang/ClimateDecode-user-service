@@ -24,12 +24,12 @@ public interface UserDetailsApi {
 	public ApiResponse<List<UserResponse>> getUserDetails();
 
 	@GetMapping("/{userId}")
-	public ApiResponse<UserResponse> getUserDetailsById(@PathVariable(value = "userId") Integer userId);
+	public ApiResponse<UserResponse> getUserDetailsById(@PathVariable(value = "userId") Long userId);
 
 	@DeleteMapping("/{userId}")
-	public ApiResponse<String> deleteUserDetails(@PathVariable(value = "userId") Integer userId);
+	public ApiResponse<String> deleteUserDetails(@PathVariable(value = "userId") Long userId);
 
 	@PatchMapping("/{userId}")
-	public ApiResponse<UserResponse> updateUserDetails(@PathVariable(value = "userId") Integer userId,
+	public ApiResponse<UserResponse> updateUserDetails(@PathVariable(value = "userId") Long userId,
 			@RequestBody UserRequest UserDetailsDto);
 }
