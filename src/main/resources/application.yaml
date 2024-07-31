@@ -11,6 +11,8 @@ spring:
         enabled: true
         #prefer-ip-address: true
         #ip-address: localhost
+    inetutils:
+      ignored-interfaces: eth0
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     password: ${DB_PASSWORD}
