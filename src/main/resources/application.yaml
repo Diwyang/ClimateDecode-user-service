@@ -4,7 +4,7 @@ spring:
   cloud:
     consul:
       host: ${CONSUL_HOST}
-      port: ${CONSUL_PORT}
+      port: ${CONSUL_PORT:8500}
       discovery:
         healthCheckPath: /actuator/health
         healthCheckInterval: 20s
