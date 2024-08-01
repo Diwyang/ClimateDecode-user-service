@@ -4,7 +4,7 @@ spring:
   cloud:
     consul:
       host: ${CONSUL_HOST}
-      port: ${CONSUL_PORT:8500}
+      port: ${CONSUL_PORT}
       discovery:
         healthCheckPath: /actuator/health
         healthCheckInterval: 20s
@@ -14,7 +14,7 @@ spring:
     inetutils:
       ignored-interfaces: eth0
   datasource:
-    driver-class-name: com.mysql.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
     password: ${DB_PASSWORD}
     username: ${DB_USERNAME}
     url: ${CD_USR_DB_URL}
