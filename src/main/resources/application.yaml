@@ -9,7 +9,7 @@ spring:
         healthCheckPath: /actuator/health
         healthCheckInterval: 20s
         enabled: true
-        #prefer-ip-address: true
+        prefer-ip-address: true
         #ip-address: localhost
     inetutils:
       ignored-interfaces: eth0
@@ -25,6 +25,17 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL8Dialect
+
+management:
+  endpoints:
+    health:
+      show-details: always
+      db:
+        enabled: false
+    web:
+      exposure:
+        include: health
+        base-path: /actuator
 
 logging:
   level:
